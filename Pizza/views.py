@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Pizza, Topping
+from .models import Pizza, Topping, Comment
 from .forms import CommentForm
 
 # Create your views here.
@@ -19,7 +19,8 @@ def pizzas(request):
 def pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     toppings = Topping.objects.all().filter(pizza=pizza_id)
-    context = {"pizza": pizza, "toppings": toppings}
+    comments = Comment.objects.all().filter(pizza=pizza_id)
+    context = {"pizza": pizza, "toppings": toppings, "comments": comments}
 
     return render(request, "Pizza/pizza.html", context)
 

@@ -14,6 +14,16 @@
         <p>{{topping.name | linebreaks}}</p>
     </li>
     {% endfor %}
+
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+    {% for comment in comments %}
+    <li>
+        <p>{{comment.date_added|date:'M d, Y H:i'}}</p>
+        <p>{{comment.text | linebreaks}}
+        <p>
+    </li>
+    {% endfor %}
 </ul>
 
 <p>
