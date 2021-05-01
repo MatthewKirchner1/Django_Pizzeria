@@ -2,15 +2,20 @@
 
 
 {% block content %}
-<p>Pizzas</p>
+<h1>
+    <p>Pizzas</p>
+</h1>
 
-<ul>
-    {% for p in pizzas %}
+<h2>
+    <ul>
+        {% for p in pizzas %}
 
-    <li>{
-        <a href="{% url 'Pizza:pizza' p.id %}">{{ p }}</a>}
-    </li>
-    {% endfor %}
-</ul>
+        <li>
+            <a href="{% url 'Pizza:pizza' p.id %}">{{ p }}</a>
+        </li>
+
+        {% endfor %}
+    </ul>
+</h2>
 
 {% endblock content %}
